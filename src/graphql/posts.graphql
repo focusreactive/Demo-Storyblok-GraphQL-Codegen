@@ -1,0 +1,12 @@
+query posts {
+  PostItems {
+    items {
+      uuid
+      content {
+        body
+        intro
+        title
+      }
+    }
+  }
+}
