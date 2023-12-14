@@ -11,12 +11,25 @@ const config: CodegenConfig = {
       schema: {
         'https://gapi.storyblok.com/v1/api': {
           headers: {
-            token: process.env.STORYBLOK_API_TOKEN!, // don't forget to add your token
+            token: process.env.STORYBLOK_API_TOKEN!,
             version: process.env.NODE_ENV === 'production' ? 'published' : 'draft',
           },
         },
       },
       plugins: ['schema-ast'],
+    },
+
+    'src/generated/storyblokSdk.ts': {
+      documents: ['src/graphql/**/*.graphql'],
+      schema: {
+        'https://gapi.storyblok.com/v1/api': {
+          headers: {
+            token: process.env.STORYBLOK_API_TOKEN!,
+            version: process.env.NODE_ENV === 'production' ? 'published' : 'draft',
+          },
+        },
+      },
+      plugins: ['typescript', 'typescript-operations', 'typescript-graphql-request'],
     },
   },
 };
