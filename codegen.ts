@@ -30,6 +30,13 @@ const config: CodegenConfig = {
         },
       },
       plugins: ['typescript', 'typescript-operations', 'typescript-graphql-request'],
+      config: {
+        // all fields in the schema are optional
+        // but we don't want to check for fields like `slug`
+        // so, all the validation lies on the shoulders of devs
+        avoidOptionals: true,
+        maybeValue: 'T',
+      },
     },
   },
 };
