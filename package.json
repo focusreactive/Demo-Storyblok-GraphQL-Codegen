@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "codegen": "graphql-codegen"
+    "codegen": "graphql-codegen",
+    "dev:codegen": "graphql-codegen -w"
   },
   "dependencies": {
     "graphql": "^16.8.1",
